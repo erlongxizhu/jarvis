@@ -25,7 +25,7 @@ for title,neirong in data_html.items():
     data_last=pd.DataFrame(weight) 
     print('type(weight)')    
     print(type(weight))
-similarity={}# 计算文章相似度 
+similarity={}    
 if len (titlelist)>1:
     for title1 in titlelist:
         for title2 in titlelist:
