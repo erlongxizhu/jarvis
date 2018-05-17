@@ -44,7 +44,10 @@ class hp(HTMLParser):
             self.a_text = False
             pass
 #开始对上述数据进行解析
-data_html= {}#用于存放解析后的结果
+
+# data = pd.read_csv('C:\\Users\\liuxiangdong.ZAONLINE\\py_code\\MovieLens\\zhongan_dev_s_lxd_temp_05152_201805152.csv',header=None)
+# print(data.head())
+data_html= {}
 page=['''<p>
     <br/>
 </p>
@@ -59,34 +62,54 @@ page=['''<p>
    天地玄黄。<br/>
 </p>''',
 '''<p>
-    <br/>
+    近日|一组歌手陈红疑身患重病被送到急症室的照片在网上引发轩然大波。照片中的陈红表情痛苦|看起来十分虚弱。
 </p>
-<h2>
-    辣椒吃太多易导致胃癌
-</h2>
 <p>
     <br/>
 </p>
 
-<p>
-   阴阳无极。<br/>
-</p>
-''','''<p>
     <br/>
 </p>
-<h2>
-    我爱你中国
-</h2>
+
+<p>
+    看来腰椎问题十分严重。<br/>
+</p>
 <p>
     <br/>
 </p>
 <p>
-    陈凯歌得得张国荣。<br/>
+    <br/>
+</p>
+<section class="_135editor" data-tools="135编辑器" data-id="92152" style="border: 0px none;">
+    <section class="_135editor" style="border: 0px none;">
+        <section style="width:100%;min-width:300px;max-width: 750px;margin: 0 auto" data-width="100%">
+            <section style="display: inline-block;width: auto;border-width:5px 20px;border-style: solid; -webkit-border-image: url(http://image2.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvdU4xTElhdjdvSmljT1RzODgya2wzUVVKaWNtZnVOVVExaWFzczkzRHI1SEVkTlp5Snl4bFMzMUExZ05RVFNzMXlnNkxBUGRTbnNZdnNqYTJzbEpEQjNUMHcvMD93eF9mbXQ9cG5n) 10 40;color: #6a6e6c;background-color: #edd50a;padding: 0 25px">
+                <p style="margin: 0;white-space: nowrap;" class="135brush" data-brushtype="text">
+                    据卫生部统计显示：
+                </p>
+            </section>
+            <section style=" border-width:25px;border-style: solid; -webkit-border-image: url(http://image2.135editor.com/cache/remote/aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvdU4xTElhdjdvSmljT1RzODgya2wzUVVKaWNtZnVOVVExaWF0T1FjakpGUGFoOEZVVElPNTJCUDdodEhYUTB5VXNmV0x0dk5YTDhnTjlTZzREOWljemdzQ1ZnLzA/d3hfZm10PXBuZw==) 40;padding-top:25px;font-size: 14px;color: #6d6c6a;background-color: #edd50a;line-height: 25px;text-align: justify;margin-top: -36px" class="135brush">
+                <p>
+                    我国腰椎病患者已突破2亿。我国30岁至40岁人群中|59.1%患有颈椎或腰椎疾病；50至60岁人群中|患此病者比例达到71%；60岁以上人群|该比例更攀至82%。
+                </p>
+            </section>
+        </section>
+    </section>
+</section>
+<p>
+    <br/>
+</p>s
+<p>
+    <strong>会导致瘫痪？</strong><br/>
+</p>
+<p>
+    腰椎出现问题有极大可能导致腰椎间盘突出|如果进一步发展可能造成下身瘫痪。<br/>
 </p>
 ''']
 yk = hp() 
 # 解析html语言里文章内容即文本
-for i in [1,2,3]:
+
+for i in [1,2]: # data.shape[0]
     yk.feed(page[i-1])
     yk.close()
     data_html.setdefault(277+i ,yk.a_data)
