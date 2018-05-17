@@ -44,10 +44,7 @@ class hp(HTMLParser):
             self.a_text = False
             pass
 #开始对上述数据进行解析
-
-# data = pd.read_csv('C:\\Users\\liuxiangdong.ZAONLINE\\py_code\\MovieLens\\zhongan_dev_s_lxd_temp_05152_201805152.csv',header=None)
-# print(data.head())
-data_html= {}
+data_html= {}#用于存放解析后的结果
 page=['''<p>
     <br/>
 </p>
@@ -89,7 +86,7 @@ page=['''<p>
 ''']
 yk = hp() 
 # 解析html语言里文章内容即文本
-for i in [1,2,3]: # data.shape[0]
+for i in [1,2,3]:
     yk.feed(page[i-1])
     yk.close()
     data_html.setdefault(277+i ,yk.a_data)
