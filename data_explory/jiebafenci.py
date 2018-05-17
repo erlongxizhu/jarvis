@@ -1,5 +1,3 @@
-
-
 from sklearn.feature_extraction.text import CountVectorizer# 类会将文本中的词语转换为词频矩阵
 from sklearn.metrics.pairwise  import cosine_similarity#  计余弦相似度
 #开始分词
@@ -8,9 +6,12 @@ titlelist = []  # 文章抬头列表
 word ={}
 from sklearn.metrics.pairwise  import cosine_similarity
 for title,neirong in data_html.items():
+    stopkey =[line.strip() for line in open('C:\\Users\\\liuxiangdong.ZAONLINE\\\\AppData\\\\\Local\\\\\\Continuum\\\\\\\Anaconda3\\\\\\\\Lib\\\\\\\\\site-packages\\\\\\\\\\jieba\\\\\\\\\\stop_world.txt').readlines()] 
     titlelist.append(title)
+    jieba.add_word('陈红')
+    jieba.add_word('马思纯')
     seg_list = jieba.cut(neirong, cut_all=False)  #  切词，方法接受三个输入参数: 需要分词的字符串；cut_all 参数用来控制是否采用全模式；HMM 参数用来控制是否使用 HMM 模型
-    result = '/'.join(seg_list)  # 输出分词的词组，本身是seg_list是一个生成器，需要for循环输出
+    result = '/'.join(list(set(seg_list)-set(stopkey)))  # 输出分词的词组，本身是seg_list是一个生成器，需要for循环输出
     wordslist.append(result)
     #print('文章标题{}'.format(title ))
     # print('拆分词组{}'.format(wordslist))
@@ -26,8 +27,7 @@ for title,neirong in data_html.items():
     data_last=pd.DataFrame(weight) 
     print('type(weight)')    
     print(type(weight))
-    # 计算文章相似度 
-similarity={}
+similarity={}# 计算文章相似度 
 if len (titlelist)>1:
     for title1 in titlelist:
         for title2 in titlelist:
