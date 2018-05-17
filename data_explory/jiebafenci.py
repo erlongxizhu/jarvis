@@ -1,6 +1,7 @@
+
+
 from sklearn.feature_extraction.text import CountVectorizer# 类会将文本中的词语转换为词频矩阵
 from sklearn.metrics.pairwise  import cosine_similarity#  计余弦相似度
-from html  import data_html
 #开始分词
 wordslist = []  # 词列表
 titlelist = []  # 文章抬头列表
@@ -25,7 +26,8 @@ for title,neirong in data_html.items():
     data_last=pd.DataFrame(weight) 
     print('type(weight)')    
     print(type(weight))
-similarity={}    
+    # 计算文章相似度 
+similarity={}
 if len (titlelist)>1:
     for title1 in titlelist:
         for title2 in titlelist:
