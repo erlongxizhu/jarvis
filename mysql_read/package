@@ -1,0 +1,27 @@
+安装 MySQLdb包，
+在 linux下  
+第一步yum -y install mysql-devel 
+如果不先运行上述代码报错
+    ----------------------------------------  
+Command "/usr/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-OcAYDJ/mysql-python/setup.py';  
+exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))"   
+install --record /tmp/pip-Urb3hW-record/install-record.txt --single-version-externally-managed --compile"   
+failed with error code 1 in /tmp/pip-build-OcAYDJ/mysql-python/ 
+
+第二步
+pip install mysql-python  即可安装成功
+
+在windows下
+
+如果有多个版本
+就运行C:\Python27\python  -m pip install mysql-python  
+如果报出如下错误
+error: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat).
+Get it from http://aka.ms/vcpython27
+则需到http://aka.ms/vcpython27下载安装，并重新执行C:\Python27\python  -m pip install mysql-python  
+如果报错No such file or directory
+    error: command '"C:\Users\用户\AppData\Local\Programs\Common\Microsoft\Visua
+l C++ for Python\9.0\VC\Bin\amd64\cl.exe"' failed with exit status 2
+则是因为包缺少驱动http://www.jb51.net/softs/73369.html下载，然后安装最后执行C:\Python27\python  -m pip install mysql-python  
+就可以
+参考http://www.cnblogs.com/superxuezhazha/p/6619036.html
