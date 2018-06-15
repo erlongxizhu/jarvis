@@ -1,0 +1,27 @@
+# -*- coding:utf-8 -*-
+# 建立连接mysql库，获取数据，
+import MySQLdb
+
+# 连接
+host = "localhost"  # rds信息默认端口 3306
+user = ""  # 用户名
+passwd = ""  # 密码
+db = ""  # 数据库名
+conn = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db, charset="utf8")
+# 使用cursor()方法获取操作游标
+cursor = conn.cursor()
+
+# SQL 查询语句
+sql = 'select * from  表名'
+# 执行SQL语句
+cursor.execute(sql)  # 获取所有记录列表
+results = cursor.fetchall()
+data_html = {}
+for row in results:
+    article_id = row[1]  # article_id
+    content = row[4]  # content
+    data_html.setdefault(article_id, content)
+    print (article_id)   # 打印结果
+    print(content)
+conn.close()  # 关闭数据库连接
+print(data_html)  # 获取数据
